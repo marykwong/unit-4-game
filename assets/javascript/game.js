@@ -1,3 +1,5 @@
+//do this when it loads
+
 window.onload = function() {
 //initialize the variables
 var diamondNum = Math.floor(Math.random() * 12) + 1;
@@ -18,26 +20,29 @@ function reset(){
 }
 
 reset();
- 
+ //declaring variables
     var score = 0;
     var wins=0;
     var losses= 0;
 
+//click functions
     $("#diamond").on("click", function numRand(){
-
+        //Do this when the score is 0
         if (score ===0){
             score = diamondNum;
             $("#score").html("<h3>"+score+"</h3>");
         }
+        //Otherwise do this
         else {
             score += diamondNum;
             $("#score").html("<h3>"+score+"</h3>");  
-            
+            //if score is not zero, add until the random number is equal to 0.
             if(score === randNum){
                 wins++;
                 $("#winLose").html("You win!<br>Wins:" + wins+"<br>Losses:"+losses);
                 reset();
             }
+            //if score is not 0, add until the random number is greater than 0
             if(score > randNum){
                 losses++;
                 $("#winLose").html("You lose!<br>Wins:" + wins+"<br>Losses:"+losses);
